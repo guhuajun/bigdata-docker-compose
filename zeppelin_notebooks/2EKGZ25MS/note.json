@@ -1,72 +1,351 @@
 {
   "paragraphs": [
     {
-      "text": "%sh\n\n#Only load a file to HDFS if it\u0027s not already there - because of this you can run all paragraphs as many times as you like.\nhadoop fs -test -e /grades.csv\n\nif ! hadoop fs -test -e /grades.csv\nthen\n    echo \"*******************************************\"\n    echo \"grades.csv is not in HDFS yet! Uploading...\"\n    echo \"*******************************************\"d\n    hadoop fs -put /data/grades.csv /\nfi"
+      "text": "%sh\n\n#Only load a file to HDFS if it\u0027s not already there - because of this you can run all paragraphs as many times as you like.\nhadoop fs -test -e /grades.csv\n\nif ! hadoop fs -test -e /grades.csv\nthen\n    echo \"*******************************************\"\n    echo \"grades.csv is not in HDFS yet! Uploading...\"\n    echo \"*******************************************\"d\n    hadoop fs -put /data/grades.csv /\nfi",
+      "config": {},
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "apps": [],
+      "jobName": "paragraph_1607149081921_1421284579",
+      "id": "20201205-061801_1910896157",
+      "dateCreated": "2020-12-05 06:18:01.921",
+      "status": "READY",
+      "progressUpdateIntervalMs": 500
     },
     {
-      "text": "%sh\n\nhadoop fs -ls /"
+      "text": "%sh\n\nhadoop fs -ls /",
+      "user": "anonymous",
+      "dateUpdated": "2020-12-05 06:36:06.141",
+      "config": {
+        "colWidth": 12.0,
+        "fontSize": 9.0,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "scala",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        },
+        "editorMode": "ace/mode/scala"
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": "SLF4J: Class path contains multiple SLF4J bindings.\nSLF4J: Found binding in [jar:file:/usr/hadoop/share/hadoop/common/lib/slf4j-log4j12-1.7.25.jar!/org/slf4j/impl/StaticLoggerBinder.class]\nSLF4J: Found binding in [jar:file:/usr/hive/lib/log4j-slf4j-impl-2.10.0.jar!/org/slf4j/impl/StaticLoggerBinder.class]\nSLF4J: See http://www.slf4j.org/codes.html#multiple_bindings for an explanation.\nSLF4J: Actual binding is of type [org.slf4j.impl.Log4jLoggerFactory]\n2020-12-05 06:36:09,530 WARN util.NativeCodeLoader: Unable to load native-hadoop library for your platform... using builtin-java classes where applicable\nFound 6 items\n-rw-r--r--   2 root supergroup        747 2020-12-05 06:31 /grades.csv\ndrwxr-xr-x   - root supergroup          0 2020-12-05 06:18 /log\ndrwxr-xr-x   - root supergroup          0 2020-12-05 06:18 /spark-jars\ndrwxrwx---   - root supergroup          0 2020-12-05 06:18 /tmp\ndrwxr-xr-x   - root supergroup          0 2020-12-05 06:28 /user\ndrwxr-xr-x   - root supergroup          0 2020-12-05 06:25 /usr\n"
+          }
+        ]
+      },
+      "apps": [],
+      "jobName": "paragraph_1607149081921_-1971868663",
+      "id": "20201205-061801_753426788",
+      "dateCreated": "2020-12-05 06:18:01.921",
+      "dateStarted": "2020-12-05 06:36:06.225",
+      "dateFinished": "2020-12-05 06:36:10.734",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
     },
     {
-      "text": "%jdbc\n\n-- Does not support more than one statement per paragraph, it seems. Same goes for semicolon at the end of statements - errors out if you include it.\nDROP TABLE IF EXISTS grades"
+      "text": "%jdbc\n\n-- Does not support more than one statement per paragraph, it seems. Same goes for semicolon at the end of statements - errors out if you include it.\nDROP TABLE IF EXISTS grades",
+      "config": {},
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "apps": [],
+      "jobName": "paragraph_1607149081921_325005336",
+      "id": "20201205-061801_1586470445",
+      "dateCreated": "2020-12-05 06:18:01.921",
+      "status": "READY",
+      "progressUpdateIntervalMs": 500
     },
     {
-      "text": "%jdbc\n\nCREATE TABLE grades(\n    `Last name` STRING,\n    `First name` STRING,\n    `SSN` STRING,\n    `Test1` DOUBLE,\n    `Test2` INT,\n    `Test3` DOUBLE,\n    `Test4` DOUBLE,\n    `Final` DOUBLE,\n    `Grade` STRING)\nCOMMENT \u0027https://people.sc.fsu.edu/~jburkardt/data/csv/csv.html\u0027\nROW FORMAT DELIMITED\nFIELDS TERMINATED BY \u0027,\u0027\nSTORED AS TEXTFILE\ntblproperties(\"skip.header.line.count\"\u003d\"1\")"
+      "text": "%jdbc\n\nCREATE TABLE grades(\n    `Last name` STRING,\n    `First name` STRING,\n    `SSN` STRING,\n    `Test1` DOUBLE,\n    `Test2` INT,\n    `Test3` DOUBLE,\n    `Test4` DOUBLE,\n    `Final` DOUBLE,\n    `Grade` STRING)\nCOMMENT \u0027https://people.sc.fsu.edu/~jburkardt/data/csv/csv.html\u0027\nROW FORMAT DELIMITED\nFIELDS TERMINATED BY \u0027,\u0027\nSTORED AS TEXTFILE\ntblproperties(\"skip.header.line.count\"\u003d\"1\")",
+      "config": {},
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "apps": [],
+      "jobName": "paragraph_1607149081921_-1693610965",
+      "id": "20201205-061801_1373577787",
+      "dateCreated": "2020-12-05 06:18:01.921",
+      "status": "READY",
+      "progressUpdateIntervalMs": 500
     },
     {
-      "text": "%jdbc\n\nLOAD DATA INPATH \u0027/grades.csv\u0027 INTO TABLE grades"
+      "text": "%jdbc\n\nLOAD DATA INPATH \u0027/grades.csv\u0027 INTO TABLE grades",
+      "config": {},
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "apps": [],
+      "jobName": "paragraph_1607149081922_1507763270",
+      "id": "20201205-061801_265577219",
+      "dateCreated": "2020-12-05 06:18:01.922",
+      "status": "READY",
+      "progressUpdateIntervalMs": 500
     },
     {
-      "text": "%jdbc\n\nSELECT * FROM grades"
+      "text": "%jdbc\n\nSELECT * FROM grades",
+      "config": {},
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "apps": [],
+      "jobName": "paragraph_1607149081922_-197855316",
+      "id": "20201205-061801_1624817884",
+      "dateCreated": "2020-12-05 06:18:01.922",
+      "status": "READY",
+      "progressUpdateIntervalMs": 500
     },
     {
-      "text": "%sh\n\n# Take a look at the warehouse directory, specifically where our Hive table is stored.\n hadoop fs -ls /usr/hive/warehouse/grades"
+      "text": "%sh\n\n# Take a look at the warehouse directory, specifically where our Hive table is stored.\n hadoop fs -ls /usr/hive/warehouse/grades",
+      "config": {},
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "apps": [],
+      "jobName": "paragraph_1607149081922_-1989956834",
+      "id": "20201205-061801_1107579932",
+      "dateCreated": "2020-12-05 06:18:01.922",
+      "status": "READY",
+      "progressUpdateIntervalMs": 500
     },
     {
-      "text": "%sh\n\n# Put the file back into HDFS - it was moved to warehouse directory when we loaded it with Hive.\nhadoop fs -put /data/grades.csv /\nhadoop fs -ls /"
+      "text": "%sh\n\n# Put the file back into HDFS - it was moved to warehouse directory when we loaded it with Hive.\nhadoop fs -put /data/grades.csv /\nhadoop fs -ls /",
+      "config": {},
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "apps": [],
+      "jobName": "paragraph_1607149081922_-1361568242",
+      "id": "20201205-061801_1784834205",
+      "dateCreated": "2020-12-05 06:18:01.922",
+      "status": "READY",
+      "progressUpdateIntervalMs": 500
     },
     {
-      "text": "%spark\n\n// Basic Spark functions\nspark.range(1000 * 1000 * 1000).count()"
+      "text": "%spark\n\n// Basic Spark functions\nspark.range(1000 * 1000 * 1000).count()",
+      "config": {},
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "apps": [],
+      "jobName": "paragraph_1607149081922_-1045886465",
+      "id": "20201205-061801_1174586025",
+      "dateCreated": "2020-12-05 06:18:01.922",
+      "status": "READY",
+      "progressUpdateIntervalMs": 500
     },
     {
-      "text": "%spark\n\n// Dataframes\nval df \u003d Seq(\n  (\"One\", 1),\n  (\"Two\", 2),\n  (\"Three\", 3),\n  (\"Four\", 4)\n).toDF(\"This is\", \"an example\")\ndf.show()"
+      "text": "%spark\n\n// Dataframes\nval df \u003d Seq(\n  (\"One\", 1),\n  (\"Two\", 2),\n  (\"Three\", 3),\n  (\"Four\", 4)\n).toDF(\"This is\", \"an example\")\ndf.show()",
+      "config": {},
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "apps": [],
+      "jobName": "paragraph_1607149081922_1724050861",
+      "id": "20201205-061801_1627010197",
+      "dateCreated": "2020-12-05 06:18:01.922",
+      "status": "READY",
+      "progressUpdateIntervalMs": 500
     },
     {
-      "text": "%spark\n\n// Read CSV file from HDFS into Dataframe\nval df \u003d spark.read.format(\"csv\").option(\"header\", \"true\").load(\"/grades.csv\")\ndf.show()"
+      "text": "%spark\n\n// Read CSV file from HDFS into Dataframe\nval df \u003d spark.read.format(\"csv\").option(\"header\", \"true\").load(\"/grades.csv\")\ndf.show()",
+      "config": {},
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "apps": [],
+      "jobName": "paragraph_1607149081922_1047915197",
+      "id": "20201205-061801_4073506",
+      "dateCreated": "2020-12-05 06:18:01.922",
+      "status": "READY",
+      "progressUpdateIntervalMs": 500
     },
     {
-      "text": "%spark\n\n// Spark SQL and temporary views\ndf.createOrReplaceTempView(\"df\")\nspark.sql(\"SHOW TABLES\").show()"
+      "text": "%spark\n\n// Spark SQL and temporary views\ndf.createOrReplaceTempView(\"df\")\nspark.sql(\"SHOW TABLES\").show()",
+      "config": {},
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "apps": [],
+      "jobName": "paragraph_1607149081923_-601665379",
+      "id": "20201205-061801_2044825144",
+      "dateCreated": "2020-12-05 06:18:01.923",
+      "status": "READY",
+      "progressUpdateIntervalMs": 500
     },
     {
-      "text": "%spark\n\nspark.sql(\"SELECT * FROM df WHERE Final > 50\").show()"
+      "text": "%spark\n\nspark.sql(\"SELECT * FROM df WHERE Final \u003e 50\").show()",
+      "config": {},
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "apps": [],
+      "jobName": "paragraph_1607149081923_2080272259",
+      "id": "20201205-061801_698747943",
+      "dateCreated": "2020-12-05 06:18:01.923",
+      "status": "READY",
+      "progressUpdateIntervalMs": 500
     },
     {
-      "text": "%spark.pyspark\n\n# Check Python version - 2 not allowed.\nimport sys\nprint(sys.version)"
+      "text": "%spark.pyspark\n\n# Check Python version - 2 not allowed.\nimport sys\nprint(sys.version)",
+      "config": {},
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "apps": [],
+      "jobName": "paragraph_1607149081937_4507889",
+      "id": "20201205-061801_407493402",
+      "dateCreated": "2020-12-05 06:18:01.937",
+      "status": "READY",
+      "progressUpdateIntervalMs": 500
     },
     {
-      "text": "%spark.pyspark\n\n#  Basic Spark functions\nspark.range(1000 * 1000 * 1000).count()"
+      "text": "%spark.pyspark\n\n#  Basic Spark functions\nspark.range(1000 * 1000 * 1000).count()",
+      "config": {},
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "apps": [],
+      "jobName": "paragraph_1607149081937_1056207882",
+      "id": "20201205-061801_1774690057",
+      "dateCreated": "2020-12-05 06:18:01.937",
+      "status": "READY",
+      "progressUpdateIntervalMs": 500
     },
     {
-      "text": "%spark.pyspark\n\n# Dataframes\ndf \u003d sqlContext.createDataFrame([(\"One\", 1), (\"Two\", 2), (\"Three\", 3), (\"Four\", 4)], (\"This is\", \"an example\"))\ndf.show()"
+      "text": "%spark.pyspark\n\n# Dataframes\ndf \u003d sqlContext.createDataFrame([(\"One\", 1), (\"Two\", 2), (\"Three\", 3), (\"Four\", 4)], (\"This is\", \"an example\"))\ndf.show()",
+      "config": {},
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "apps": [],
+      "jobName": "paragraph_1607149081937_593960008",
+      "id": "20201205-061801_480402503",
+      "dateCreated": "2020-12-05 06:18:01.937",
+      "status": "READY",
+      "progressUpdateIntervalMs": 500
     },
     {
-      "text": "%spark.pyspark\n\n# Read CSV file from HDFS into Dataframe\ndf \u003d spark.read.format(\"csv\").option(\"header\", \"true\").load(\"/grades.csv\")\ndf.show()"
+      "text": "%spark.pyspark\n\n# Read CSV file from HDFS into Dataframe\ndf \u003d spark.read.format(\"csv\").option(\"header\", \"true\").load(\"/grades.csv\")\ndf.show()",
+      "config": {},
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "apps": [],
+      "jobName": "paragraph_1607149081938_-1169885097",
+      "id": "20201205-061801_100445376",
+      "dateCreated": "2020-12-05 06:18:01.938",
+      "status": "READY",
+      "progressUpdateIntervalMs": 500
     },
     {
-      "text": "%spark.r\n\n# Dataframes\ndf \u003c- as.DataFrame(list(\"One\", \"Two\", \"Three\", \"Four\"), \"This is as example\")\nhead(df)"
+      "text": "%spark.r\n\n# Dataframes\ndf \u003c- as.DataFrame(list(\"One\", \"Two\", \"Three\", \"Four\"), \"This is as example\")\nhead(df)",
+      "config": {},
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "apps": [],
+      "jobName": "paragraph_1607149081938_49166149",
+      "id": "20201205-061801_1396385390",
+      "dateCreated": "2020-12-05 06:18:01.938",
+      "status": "READY",
+      "progressUpdateIntervalMs": 500
     },
     {
-      "text": "%spark.r\n\n# Read CSV file from HDFS into Dataframe\ndf \u003c- read.df(\"/grades.csv\", \"csv\", header\u003d\"true\")\nhead(df)"
+      "text": "%spark.r\n\n# Read CSV file from HDFS into Dataframe\ndf \u003c- read.df(\"/grades.csv\", \"csv\", header\u003d\"true\")\nhead(df)",
+      "config": {},
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "apps": [],
+      "jobName": "paragraph_1607149081938_-371070503",
+      "id": "20201205-061801_114414807",
+      "dateCreated": "2020-12-05 06:18:01.938",
+      "status": "READY",
+      "progressUpdateIntervalMs": 500
     },
     {
-      "text": "%livy\n\n// Scala Spark over Livy\nspark.range(1000 * 1000 * 1000).count()"
+      "text": "%livy\n\n// Scala Spark over Livy\nspark.range(1000 * 1000 * 1000).count()",
+      "config": {},
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "apps": [],
+      "jobName": "paragraph_1607149081938_-297937491",
+      "id": "20201205-061801_144699438",
+      "dateCreated": "2020-12-05 06:18:01.938",
+      "status": "READY",
+      "progressUpdateIntervalMs": 500
     },
     {
-      "text": "%livy.pyspark\n\n#  PySpark over Livy\nimport sys\nprint(sys.version)\nspark.range(1000 * 1000 * 1000).count()"
+      "text": "%livy.pyspark\n\n#  PySpark over Livy\nimport sys\nprint(sys.version)\nspark.range(1000 * 1000 * 1000).count()",
+      "config": {},
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "apps": [],
+      "jobName": "paragraph_1607149081938_447036374",
+      "id": "20201205-061801_1751500625",
+      "dateCreated": "2020-12-05 06:18:01.938",
+      "status": "READY",
+      "progressUpdateIntervalMs": 500
     },
     {
-      "text": "%livy.sparkr\n\n# SparkR over Livy\ndf \u003c- as.DataFrame(list(\"One\", \"Two\", \"Three\", \"Four\"), \"This is as example\")\nhead(df)"
+      "text": "%livy.sparkr\n\n# SparkR over Livy\ndf \u003c- as.DataFrame(list(\"One\", \"Two\", \"Three\", \"Four\"), \"This is as example\")\nhead(df)",
+      "config": {},
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "apps": [],
+      "jobName": "paragraph_1607149081938_43660757",
+      "id": "20201205-061801_1650955365",
+      "dateCreated": "2020-12-05 06:18:01.938",
+      "status": "READY",
+      "progressUpdateIntervalMs": 500
     }
   ],
   "name": "test",
-  "id": "2EKGZ25MS"
+  "id": "2EKGZ25MS",
+  "noteParams": {},
+  "noteForms": {},
+  "angularObjects": {
+    "sh:shared_process": [],
+    "jdbc:shared_process": [],
+    "spark:shared_process": [],
+    "livy:shared_process": []
+  },
+  "config": {
+    "isZeppelinNotebookCronEnable": false
+  },
+  "info": {}
 }
